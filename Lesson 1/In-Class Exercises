@@ -152,4 +152,4 @@ if __name__ == "__main__":
     # Call greet_user without an argument
     greeting2 = greet_user()
     print(greeting2)
-
+pass
