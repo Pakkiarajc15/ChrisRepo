@@ -53,6 +53,8 @@ def calculate(num_one, num_two, operator):
         if num_two == 0:
             return "Error: Division by zero is not allowed."
         return num_one / num_two
+    else:
+        return "Error: Invalid operator. Please use +, -, *, or /."
     pass
 
 
