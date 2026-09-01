@@ -1,1 +1,166 @@
+"""
+Lesson 2 In-Class Exercises (No Answers)
+========================================
 
+This file is scaffold-only.
+Use the matching examples file as your reference.
+"""
+
+import random
+
+
+# =============================
+# Exercise 1: Collections Practice
+# =============================
+
+# TODO: Create an `inventory` dictionary with nested details.
+inventory = { 
+    "laptop": {
+        "quantity": 10, 
+        "price": 999.99
+        },
+    "mouse": {
+        "quantity": 50, 
+        "price": 29.99
+        },
+    "keyboard": {
+        "quantity": 20, 
+        "price": 49.99}
+}
+# TODO: Add one new product.
+inventory["monitor"] = {
+    "quantity": 15,
+    "price": 199.99
+}
+# TODO: Update stock for one product.
+inventory["laptop"]["quantity"] = 13
+# TODO: Loop through inventory and print a summary.
+for product, details in inventory.items():
+    print(f"{product.title()}: Quantity = {details['quantity']}, Price = ${details['price']:.2f}")  
+
+# =============================
+# Exercise 2: Student Tracker
+# =============================
+
+# TODO: Create a nested dictionary for students and grades.
+students = {
+    "Devin": {
+        "Math": 90,
+        "English": 85,
+        "Python": 95
+    },
+    "Chris": {
+        "Math": 80,
+        "English": 88,
+        "Python": 90
+    }
+}
+# TODO: Add one student.
+students["Sarah"] = {
+    "Math": 85,
+    "English": 90,
+    "Python": 88
+}
+# TODO: Update one existing grade.
+students["Devin"]["Math"] = 92
+
+# TODO: Compute and print each student's average.
+for student, grades in students.items():
+    average = sum(grades.values()) / len(grades)
+    print(f"{student}'s average grade: {average:.2f}")
+
+
+# =============================
+# Exercise 3: Indexing and Slicing
+# =============================
+
+# TODO: Create a sentence string.
+sentence = "Hello, Welcome to Python class"
+# TODO: Print first N characters, last N characters, and a stepped slice.
+N = sentence.index(" ")  # Get the index of the first space as N
+print(f"First {N} characters: {sentence[:N]}")
+print(f"Last {N} characters: {sentence[-N:]}")
+print(f"Stepped slice: {sentence[::2]}")
+
+# =============================
+# Exercise 4: Control Flow
+# =============================
+
+# TODO: Iterate through a list of integers.
+numbers = [5, -3, 0, 10, -8]
+# TODO: Print whether each number is positive, negative, or zero.
+for n in numbers:
+    if n > 0:
+        print(f"{n} is positive.")
+    elif n < 0:
+        print(f"{n} is negative.")
+    else:
+        print(f"{n} is zero.")
+
+
+# =============================
+# Exercise 5: Function + Scope
+# =============================
+
+course_name = "MSITM.6341"
+
+
+def summarize_student(name, grades):
+    """
+    Build a student summary with average grade.
+
+    Args:
+        name (str): Student name.
+        grades (list[int | float]): Numeric grades.
+
+    Returns:
+        str: Summary line.
+    """
+    # TODO: Compute average and return formatted summary.
+    average = sum(grades) / len(grades)
+    return f"Student: {name}, Average Grade: {average:.2f}"
+    pass
+
+
+# =============================
+# Exercise 6: Pseudo-code to Python
+# =============================
+
+"""
+Pseudo-code for Rock, Paper, Scissors
+1. Store valid choices.
+2. Read player choice.
+3. Randomly choose computer choice.
+4. Compare choices to determine winner.
+"""
+
+
+def determine_rps_winner(player_choice, computer_choice):
+    """
+    Return round outcome for Rock-Paper-Scissors.
+
+    Args:
+        player_choice (str): User choice.
+        computer_choice (str): Computer choice.
+
+    Returns:
+        str: "Player wins", "Computer wins", or "Tie".
+    """
+    # TODO: Implement winner logic.
+    if player_choice == computer_choice:
+        return "Tie"
+    elif (player_choice == "rock" and computer_choice == "scissors") or \
+         (player_choice == "paper" and computer_choice == "rock") or \
+         (player_choice == "scissors" and computer_choice == "paper"):
+        return "Player wins"
+    else:
+        return "Computer wins"
+
+
+if __name__ == "__main__":
+    # TODO: Add quick test run with one random computer choice.
+    random_choice = random.choice(["rock", "paper", "scissors"])
+    result = determine_rps_winner("rock", random_choice)
+    print(result)
+    _ = random
+    pass
