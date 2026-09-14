@@ -1,1 +1,185 @@
+"""
+Lesson 2 Assignment: Rock-Paper-Scissors
+========================================
 
+Synchronized topics:
+- Collections, conditionals, loops, and functions
+- Translating pseudo-code into runnable logic
+
+Important:
+- This file is a scaffold only.
+- Implement the TODO logic yourself.
+"""
+
+import random
+
+
+# =============================
+# Assignment Prompt
+# =============================
+"""
+Build a Rock-Paper-Scissors game where a user plays against the computer.
+
+Required behavior:
+1. Validate user input.
+2. Generate random computer choices.
+3. Decide the winner for each round.
+4. Support multiple rounds.
+5. Track and print final score.
+"""
+
+
+# =============================
+# Pseudo-code
+# =============================
+"""
+1. Start program and show game rules.
+2. Create a list: ["Rock", "Paper", "Scissors"].
+3. Repeat until player quits:
+   a. Ask player for a choice.
+   b. Validate input.
+   c. Randomly choose computer option.
+   d. Compare choices and determine winner.
+   e. Update score counters.
+4. Print final score summary.
+"""
+
+
+def play_round(user_choice, computer_choice):
+    """
+    Determine the outcome of one game round.
+
+    Args:
+        user_choice (str): Player choice.
+        computer_choice (str): Computer choice.
+
+    Returns:
+        str: "win", "lose", or "tie".
+    """
+    # TODO: Implement round outcome logic.
+    if user_choice == computer_choice:
+        return "tie"
+
+    elif user_choice == "Rock" and computer_choice == "Scissors":
+        return "win"
+
+    elif user_choice == "Paper" and computer_choice == "Rock":
+        return "win"
+
+    elif user_choice == "Scissors" and computer_choice == "Paper":
+        return "win"
+
+    else:
+        return "lose"
+
+    pass
+
+
+def get_user_choice(valid_choices):
+    """
+    Collect and validate one user choice.
+
+    Args:
+        valid_choices (list[str]): Allowed options.
+
+    Returns:
+        str: Valid player choice.
+    """
+    # TODO: Prompt user until a valid option is entered.
+    while True:
+        user_input = input(
+            "Choose Rock, Paper, or Scissors (or type Quit to exit): "
+        ).strip()
+
+        if user_input.lower() == "quit":
+            return "Quit"
+
+        # Convert input such as "rock" or "ROCK" to "Rock"
+        user_choice = user_input.capitalize()
+
+        if user_choice in valid_choices:
+            return user_choice
+
+        print("Invalid choice. Please enter Rock, Paper, or Scissors.")
+
+    pass
+
+
+def run_game():
+    """
+    Manage the full multi-round game flow.
+
+    Returns:
+        None
+    """
+    choices = ["Rock", "Paper", "Scissors"]
+    user_score = 0
+    computer_score = 0
+    print("================================")
+    print("     ROCK - PAPER - SCISSORS")
+    print("================================")
+    print("Rules:")
+    print("Rock beats Scissors")
+    print("Scissors beats Paper")
+    print("Paper beats Rock")
+    print("Type Quit when you want to stop.")
+    print()
+    # TODO: Implement main gameplay loop and score tracking.
+    # TODO: Print a final summary when user exits.
+    while True:
+
+        user_choice = get_user_choice(choices)
+
+        if user_choice == "Quit":
+            break
+
+        computer_choice = random.choice(choices)
+
+        print("You chose:", user_choice)
+        print("Computer chose:", computer_choice)
+
+        result = play_round(user_choice, computer_choice)
+
+        if result == "win":
+            print("You win this round!")
+            user_score += 1
+
+        elif result == "lose":
+            print("Computer wins this round!")
+            computer_score += 1
+
+        else:
+            print("This round is a tie!")
+
+        print("Score - You:", user_score,
+              "Computer:", computer_score)
+        print()
+
+    print()
+    print("================================")
+    print("          FINAL SCORE")
+    print("================================")
+    print("Your score:", user_score)
+    print("Computer score:", computer_score)
+
+    if user_score > computer_score:
+        print("Congratulations! You won the game!")
+
+    elif computer_score > user_score:
+        print("Computer won the game!")
+
+    else:
+        print("The game ended in a tie!")
+
+    print("Thanks for playing!")
+
+ 
+    _ = random.choice(choices)  # Starter line to show random usage.
+    _ = user_score, computer_score
+    pass
+
+
+if __name__ == "__main__":
+    # TODO: Call `run_game()`.
+       run_game()
+  
